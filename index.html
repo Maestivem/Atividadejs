@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios</title>
+</head>
+
+<!-- <body> -->
+
+
+<!-- EXERCÍCIO 5:
+João está com muitas tarefas para fazer durante o dia. Crie um programa que permita que
+João adicione suas tarefas a uma lista. Ao final do dia, exiba todas as tarefas que ele precisa
+realizar. -->
+
+<!-- <h1>Lista de afazeres do João</h1>
+
+    <label for="item">Nova atividade:</label>
+    <input type="text" id="item">
+    <button onclick="adicionarItem()">Adicionar</button>
+
+
+
+    <button onclick="mostrarListadafazeres()">Mostrar Lista de Afazeres</button>
+
+    <div id="output"></div> 
+
+   <script>
+        let listadafazeres = [];
+        let outputDiv = document.getElementById("output");
+
+        function adicionarItem() {
+            let novoItem = document.getElementById("item").value;
+            listadafazeres.push(novoItem);
+            outputDiv.innerHTML = "Item adicionado à Lista: " + novoItem;
+        }
+
+        function removerItem() {
+            let itemRemover = document.getElementById("itemRemover").value;
+            let index = listadafazeres.indexOf(itemRemover);
+
+            if (index !== -1) {
+                listadafazeres.splice(index, 1);
+                outputDiv.innerHTML = "Item removido da Lista: " + itemRemover;
+            } else {
+                outputDiv.innerHTML = "Item não encontrado na lista.";
+            }
+        }
+
+        function mostrarListadafazeres() {
+            if (listadafazeres.length === 0) {
+                outputDiv.innerHTML = "A lista está vazia.";
+            } else {
+                let listaItens = "Itens da Lista:<br>";
+                for (let i = 0; i < listadafazeres.length; i++) {
+                    listaItens += (i + 1) + ". " + listadafazeres[i] + "<br>";
+                }
+                outputDiv.innerHTML = listaItens;
+            }
+        }
+    </script> -->
+
+<!-- 
+Exercício 6: Controle de Gastos
+Fernanda quer controlar seus gastos mensais. Crie um programa que permita que ela insira
+seus gastos diários em um array. No final do mês, exiba a soma total dos gastos. -->
+
+
+<body>
+  <h1>Controle de Gastos Mensais</h1>
+  
+  <div>
+    <label for="gasto">Insira o gasto do dia:</label>
+    <input type="number" id="gasto" step="0.01">
+    <button onclick="adicionarGasto()">Adicionar Gasto</button>
+  </div>
+  
+  <div>
+    <h2>Gastos Diários:</h2>
+    <ul id="listaGastos"></ul>
+  </div>
+  
+  <div>
+    <h2>Total de Gastos no Mês:</h2>
+    <p id="totalGastos">R$ 0.00</p>
+  </div>
+  
+  <script>
+    const gastosDiarios = [];
+
+    function adicionarGasto() {
+      const gastoInput = document.getElementById("gasto");
+      const valorGasto = parseFloat(gastoInput.value);
+
+      if (!isNaN(valorGasto)) {
+        gastosDiarios.push(valorGasto);
+        gastoInput.value = "";
+        exibirGastos();
+        calcularTotal();
+      }
+    }
+
+    function exibirGastos() {
+      const listaGastos = document.getElementById("listaGastos");
+      listaGastos.innerHTML = "";
+
+      gastosDiarios.forEach((gasto, index) => {
+        const itemLista = document.createElement("li");
+        itemLista.textContent = `Dia ${index + 1}: R$ ${gasto.toFixed(2)}`;
+        listaGastos.appendChild(itemLista);
+      });
+    }
+
+    function calcularTotal() {
+      const totalGastos = document.getElementById("totalGastos");
+      const somaTotal = gastosDiarios.reduce((total, gasto) => total + gasto, 0);
+      totalGastos.textContent = `Total de Gastos no Mês: R$ ${somaTotal.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
+
