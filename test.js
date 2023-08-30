@@ -1,88 +1,97 @@
-// Exercicio 4
-// // Definindo os naipes e valores das cartas
-// const naipes = ['Espadas', 'Copas', 'Ouros', 'Paus'];
-// const valores = ['Ás', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Valete', 'Dama', 'Rei'];
+//  Execicio 9
+// let aluno = [];
 
-// Criando um baralho com todas as combinações de naipes e valores
-// const baralho = [];
-// for (const valor of valores) {
-//     for (const naipe of naipes) {
-//         baralho.push({ valor, naipe });
+// function adicionarItem() {
+//     let Aluno = prompt("Digite o nome do aluno e sua idade:");
+//     aluno.push(Aluno);
+//     alert("Aluno adicionado: " + Aluno);
+// }
+
+// function exibirCarrinho() {
+//     if (aluno.length === 0) {
+//         alert("Não a alunos cadatrados");
+//         return;
+//     }
+
+//     let listaItens = "Alunos e suas idades:\n";
+//     aluno.forEach(function(item, index) {
+//         listaItens += index + ": " + item + "\n";
+//     });
+
+//     alert(listaItens);
+// }
+
+// while (true) { 
+//     let item = prompt("'Cadastrar Aluno?' ou 'Ver alunos cadastrados?'");
+
+//     switch (item) {
+//         case "Cadastrar Aluno":
+//             adicionarItem();
+//             break;
+
+//         case "Ver alunos cadastrados":
+//             exibirCarrinho();
+//             break;
+
+//         default:
+//             alert("Opção inválida.");
 //     }
 // }
 
-// // Função para embaralhar um array usando o algoritmo Fisher-Yates
-// function embaralhar(array) {
-//     for (let i = array.length - 1; i > 0; i--) {
-//         const j = Math.floor(Math.random() * (i + 1));
-//         [array[i], array[j]] = [array[j], array[i]];
+
+
+// //EXERCICIO 7 - AJUDA CHAGPT
+// Função para ordenar um array em ordem decrescente
+// function ordenarDecrescente(array) {
+//     return array.sort((a, b) => b - a);
+// }
+
+// // Função principal
+// function ABCD() {
+//     const pontuacoes = []; 
+//     // Array para armazenar as pontuações
+
+//     const numJogadores = parseInt(prompt("Quantos jogadores têm pontuações para adicionar?"));
+
+//     for (let i = 0; i < numJogadores; i++) {
+//         const pontuacao = parseInt(prompt(`Digite a pontuação do jogador ${i + 1}:`));
+//         pontuacoes.push(pontuacao);
+//     }
+
+//     // Ordena as pontuações em ordem decrescente
+//     ordenarDecrescente(pontuacoes);
+
+//     // Exibe o ranking de pontuações
+//     alert("\nRanking de Pontuações:");
+//     for (let i = 0; i < pontuacoes.length; i++) {
+//         alert(`Posição ${i + 1}: Pontuação ${pontuacoes[i]}`);
 //     }
 // }
 
-// // Função para distribuir cartas para os jogadores
-// function distribuirCartas(baralho, numCartas) {
-//     return baralho.splice(0, numCartas);
-// }
-
-// // Número de jogadores
-// const numJogadores = 4;
-
-// // Embaralhando o baralho
-// embaralhar(baralho);
-
-// // Distribuindo 5 cartas para cada jogador
-// const maos = [];
-// for (let i = 0; i < numJogadores; i++) {
-//     maos.push(distribuirCartas(baralho, 5));
-// }
-
-// // Construindo as mensagens das mãos dos jogadores
-// let mensagem = '';
-// for (let i = 0; i < maos.length; i++) {
-//     mensagem += `Mão do Jogador ${i + 1}:\n`;
-//     for (const carta of maos[i]) {
-//         mensagem += `${carta.valor} de ${carta.naipe}\n`;
-//     }
-//     mensagem += '\n';
-// }
-
-// // Exibindo as mãos dos jogadores usando alert
-// alert(mensagem);
-
-// // Ajuda do java SCRIPT//
+// // Chama a função principal
+// ABCD();
 
 
-// Exercicio 5
 
-let listadafazeres = [];
-let outputDiv = document.getElementById("output");
 
-function adicionarItem() {
-    let novoItem = document.getElementById("item").value;
-    listadafazeres.push(novoItem);
-    outputDiv.innerHTML = "Item adicionado à Lista: " + novoItem;
+
+
+// EXERCICO 8 ajuda chatgpt
+
+// Dias da semana
+let diasSemana = ["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"];
+
+// Array de temperaturas
+let temperaturas = [];
+
+// Preencher as temperaturas para cada dia da semana
+for (let i = 0; i < diasSemana.length; i++) {
+    let temperatura = parseFloat(prompt(`Digite a temperatura para ${diasSemana[i]}: `));
+    temperaturas.push(temperatura);
 }
 
-function removerItem() {
-    let itemRemover = document.getElementById("itemRemover").value;
-    let index = listadafazeres.indexOf(itemRemover);
-
-    if (index !== -1) {
-        listadafazeres.splice(index, 1);
-        outputDiv.innerHTML = "Item removido da Lista: " + itemRemover;
-    } else {
-        outputDiv.innerHTML = "Item não encontrado na lista.";
-    }
-}
-
-function mostrarListadafazeres() {
-    if (listadafazeres.length === 0) {
-        outputDiv.innerHTML = "A lista está vazia.";
-    } else {
-        let listaItens = "Itens da Lista:<br>";
-        for (let i = 0; i < listadafazeres.length; i++) {
-            listaItens += (i + 1) + ". " + listadafazeres[i] + "<br>";
-        }
-        outputDiv.innerHTML = listaItens;
-    }
+// Exibir a previsão semanal de temperatura
+alert("\nPrevisão Semanal de Temperatura:");
+for (let i = 0; i < diasSemana.length; i++) {
+    alert(`${diasSemana[i]}: ${temperaturas[i]}°C`);
 }
